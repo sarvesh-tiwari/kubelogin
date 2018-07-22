@@ -11,7 +11,7 @@ Locate your ca.key and ca.crt files on kube API server path /etc/kubernetes/pki/
 
 3 new files with name dev.csr dev.key and dev.crt will be created
 
-On local development machine create kubernetes credential, context, and cluster using dev.key and dev.crt and ca.key and ca.crt files 
+- On local development machine create kubernetes credential, context, and cluster using dev.key and dev.crt and ca.key and ca.crt files 
 
 ```
 kubectl config set-credentials dev --client-certificate=dev.crt  --client-key=dev.key
@@ -20,14 +20,14 @@ kubectl config set-context dev --cluster=dev --namespace=dev --user=dev
 ``` 
 --server=https://10.0.0.58:6443 is load balancer ip and port for kubernetes api servers.
 
-To verify the access run below command it will throw error for role creation 
+- To verify the access run below command it will throw error for role creation 
 
 ```
 kubectl --context=dev get pods
 Error from server (Forbidden): pods is forbidden: User "dev" cannot list pods in the namespace "dev"
 ```
 
-Now on API server, create deployment role using role-deployment-manager.yaml and bind it with dev user in dev namespace. 
+- Now on API server, create deployment role using role-deployment-manager.yaml and bind it with dev user in dev namespace. 
 
 ```
 kubectl create namespace dev
@@ -56,8 +56,8 @@ kubectl create namespace dev
     kind: Role
     name: deployment-manager
     apiGroup: ""    
-
-Now verify access on local machine again.
+```
+- Now verify access on local machine again.
 
 ```
 kubectl --context=dev get pods
