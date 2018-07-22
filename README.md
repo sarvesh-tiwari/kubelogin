@@ -1,6 +1,5 @@
 # kubelogin
-- To login to remote kubernetese cluster from local development machine. 
-### Create client certificate for new user called "dev" 
+- To login on to remote kubernetese cluster from local development machine. Create client certificate for new user called "dev" 
 
 login as root on kubernetes api server 
 ```
